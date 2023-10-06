@@ -1,0 +1,120 @@
+/* clear */
+:root {
+  --fontSize: 20px;
+  --box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  --lightWhite: rgb(248, 248, 248);
+  --tropicalIndigo: #9593d9;
+  --pompPurple: #736b92;
+  --vistaBlue: #7c90db;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Shadow */
+
+.container-shadow {
+}
+
+/* Navbar */
+.navigation {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  animation: flipInX 1s ease;
+}
+.navigation > a,
+.navigation > ul > li > a {
+  color: var(--tropicalIndigo);
+  transition: 1s;
+  font-size: var(--fontSize);
+  font-family: "League Spartan", sans-serif;
+}
+.navigation > a:hover,
+.navigation > ul > li > a:hover {
+  color: var(--pompPurple);
+  font-size: var(--fontSize);
+}
+.author {
+  padding-left: 1rem;
+  position: absolute;
+  top: 0;
+}
+
+/* Main Content */
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  width: 100%;
+}
+.column {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.column-left {
+  display: flex;
+  background: var(--vistaBlue);
+  overflow: hidden;
+}
+.column-left > h1 {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 8vw, 15rem);
+  color: #fff;
+  line-height: 0.8;
+  text-transform: capitalize;
+  animation: Move 3s ease;
+}
+.arrow-position {
+  position: absolute;
+  font-size: 6rem;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  animation: flipInX 5s ease-in, spining 2s ease infinite;
+  filter: drop-shadow(0 10px 0.5rem var(--vistaBlue));
+}
+/* Animation */
+@keyframes spining {
+  0% {
+    transform: translateX(-50%) translateY(0rem);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-2rem);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0rem);
+  }
+}
+@keyframes Move {
+  0% {
+    transform: translateX(20em);
+  }
+  100% {
+    transform: translateX(0em);
+  }
+}
