@@ -10,8 +10,10 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;900&display=swap"
       rel="stylesheet"
     />
     <script
@@ -30,37 +32,94 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/index.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
+    <!-- Main content -->
     <main class="main-content">
       <section class="column column-left">
         <h1 class="">ASMUS <br />ARKADIUSZ</h1>
+        <div class="object"></div>
       </section>
-      <section class="column">
+
+      <section class="column column-right">
         <nav class="navigation justify-content-end font-weight-bold p-2">
           <ul class="nav">
-            <li><a class="nav-link" href="#">HOME</a></li>
-            <li><a class="nav-link" href="#">About me</a></li>
-            <li><a class="nav-link" href="#">Projects</a></li>
-            <li><a class="nav-link" href="#">Resume</a></li>
+            <li class="fadeIn_1">
+              <a class="nav-link" href="#">HOME</a>
+            </li>
+            <li class="fadeIn_2">
+              <a class="nav-link" href="#aboutMe">About me</a>
+            </li>
+            <li class="fadeIn_3">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
+            <li class="fadeIn_4"><a class="nav-link" href="#">Resume</a></li>
           </ul>
         </nav>
+        <div class="welcome-description">
+          <h2>
+            Hi,<br />
+            I'm your New <br />
+            <span
+              style="
+                color: var(--pompPurple);
+                text-transform: capitalize;
+                font-size: clamp(0.8rem, 8vw, 7rem);
+              "
+              >front-end
+              <br />
+              developer</span
+            >
+          </h2>
+        </div>
       </section>
-      <i
-        class="fa-solid fa-circle-down arrow-position"
-        style="color: #fff"
-        ;
-      ></i>
+
+      <a href="#aboutMe">
+        <i
+          class="fa-solid fa-circle-down arrow-position"
+          style="color: #fff"
+          ;
+        ></i>
+      </a>
+      <div class="contact-sidebar">
+        <a href="https://www.linkedin.com/in/arkadiusz-asmus-482a0227b/"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href="https://www.facebook.com/profile.php?id=100015337626986"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/arkadio_a/"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="https://github.com/arekasek"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </div>
     </main>
-    <section class="column">
-      <nav class="navigation justify-content-end font-weight-bold p-2">
-        <ul class="nav">
-          <li><a class="nav-link" href="#">HOME</a></li>
-          <li><a class="nav-link" href="#">About me</a></li>
-          <li><a class="nav-link" href="#">Projects</a></li>
-          <li><a class="nav-link" href="#">Resume</a></li>
-        </ul>
-      </nav>
+
+    <!-- About me -->
+
+    <section class="column-full" id="aboutMe">
+      <div class="about-me">
+        <div class="image-container">
+          <img
+            class="about-me-photo"
+            src="./img/ab6775700000ee8557778ee2324837085004b746.png"
+            alt="arkadiusz-asmus"
+          />
+        </div>
+        <div class="text-container">
+          <span class="about-me-description"
+            >I am a twenty-year-old computer science student from Poland seeking
+            for employment. I am ready for learning and new challenges. I would
+            be happy to join a team where I can leverage my creativity in
+            front-end development. If you are looking for someone eager to
+            learn, please feel free to get in touch.</span
+          >
+        </div>
+      </div>
     </section>
   </body>
 </html>
