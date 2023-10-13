@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("animate__lightSpeedInRight");
+          entry.target.classList.add("animate__bounceInUp");
           observer.unobserve(entry.target);
         }
       });
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 1 }
   );
 
-  const Sections = document.querySelectorAll(".about-me");
+  const Sections = document.querySelectorAll(".animate-section");
 
   Sections.forEach((section) => {
     observer.observe(section);
