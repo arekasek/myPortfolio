@@ -81,6 +81,7 @@ body {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   flex-direction: column;
+  animation: fadeIn 3s ease-in;
 }
 
 .contact-sidebar > a {
@@ -119,22 +120,22 @@ body {
 .column-right {
   display: flex;
   overflow: hidden;
+  background-color: #fff;
   justify-content: flex-start;
 }
 
 .column-full {
-  display: flex;
   height: 100%;
   width: 100%;
-  display: flex;
   overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: var(--vistaBlue);
 }
 
 .column-left {
   display: flex;
-  background: var(--vistaBlue);
   overflow: hidden;
 }
 
@@ -144,8 +145,9 @@ body {
   font-size: clamp(1rem, 8vw, 15rem);
   color: #fff;
   line-height: 0.8;
+  text-align: right;
   text-transform: capitalize;
-  animation: Move 3s ease;
+  animation: MoveRight 3s ease;
 }
 
 .arrow-position {
@@ -155,8 +157,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  animation: flipInX 5s ease-in, spining 2s ease infinite;
-  filter: drop-shadow(0 10px 0.5rem var(--vistaBlue));
+  animation: flipInX 10s ease-in, spining 2s ease infinite;
+  filter: drop-shadow(0 10px 0.2rem var(--vistaBlue));
 }
 
 .welcome-description {
@@ -174,34 +176,40 @@ body {
   font-size: clamp(0.5rem, 6vw, 5rem);
   color: var(--vistaBlue);
   line-height: 0.8;
-  animation: Move 5s ease-in-out;
+  animation: MoveLeft 5s ease-in-out;
 }
 
 /* About Me */
 
 .about-me {
-  background-color: white;
   border-radius: 1rem;
   width: clamp(3rem, 80vw, 80vw);
   height: auto;
   box-shadow: var(--box-shadow);
   opacity: 0;
+  margin-left: 1.5rem;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border: 1px solid rgba(115, 107, 146, 0.04);
 }
-.about-me.animate__lightSpeedInRight {
+.about-me.animate__bounceInUp {
   opacity: 1;
   transform: translateY(0);
-  animation-duration: 1s;
+  animation-duration: 1.5s;
 }
 .about-me-photo {
   border-radius: 50%;
   width: 100%;
-  border: 1rem solid var(--tropicalIndigo);
+  border: 1rem solid var(--pompPurple);
   background-color: var(--tropicalIndigo);
   box-shadow: var(--box-shadow);
 }
@@ -216,8 +224,8 @@ body {
   font-family: var(--fontFamily);
   font-size: clamp(1rem, 1.5vw, 5rem);
   font-weight: 300;
-  color: var(--tropicalIndigo);
-  animation: pulse 2s ease infinite;
+  color: #fff;
+  animation: pulse 10s ease infinite;
 }
 /* Animation */
 .fadeIn_1 {
@@ -248,9 +256,17 @@ body {
   }
 }
 
-@keyframes Move {
+@keyframes MoveRight {
   0% {
     transform: translateX(20em);
+  }
+  100% {
+    transform: translateX(0em);
+  }
+}
+@keyframes MoveLeft {
+  0% {
+    transform: translateX(-20em);
   }
   100% {
     transform: translateX(0em);
