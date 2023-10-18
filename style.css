@@ -42,7 +42,7 @@ body {
   text-align: justify;
   text-wrap: wrap;
   font-family: var(--fontFamily);
-  font-size: clamp(0.8rem, 1.5vw, 3rem);
+  font-size: clamp(16px, 1.5vw, 3rem);
   font-weight: 600;
   color: #fff;
   padding: 1rem;
@@ -333,5 +333,12 @@ body {
     width: 100vw;
     height: 100vh;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .about-me {
+    width: 100vw;
+    height: 100vh;
+  }
+  .project-container > .text-container {
+    font-size: 16px;
   }
 }
