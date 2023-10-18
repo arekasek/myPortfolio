@@ -335,6 +335,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   .about-me {
+    opacity: 1;
   }
   .project-container > .text-container {
     font-size: 16px;
