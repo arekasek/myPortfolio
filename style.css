@@ -60,7 +60,7 @@ body {
 .navigation > a,
 .navigation > ul > li > a {
   color: var(--tropicalIndigo);
-  transition: 1s;
+  transition: color 1s;
   font-size: var(--fontSize);
   position: relative;
   font-family: var(--fontFamily);
@@ -75,15 +75,15 @@ body {
 .navigation > ul > li > a::after {
   content: "";
   position: absolute;
-  display: none;
+  display: block;
   height: 3px;
   width: 0%;
   background-color: var(--pompPurple);
+  transition: width s;
 }
 
 .navigation > ul > li > a:hover::after {
-  display: block;
-  animation: stretch 0.5s forwards;
+  width: 80%;
 }
 
 .contact-sidebar {
@@ -203,7 +203,7 @@ body {
 
 .about-me {
   width: clamp(3rem, 80vw, 80vw);
-  height: auto;
+  height: fit-content;
   opacity: 0;
   transform: translateY(20px);
   display: flex;
@@ -219,11 +219,12 @@ body {
   box-shadow: var(--box-shadow);
 }
 .about-me > .image-container {
-  width: clamp(5rem, 20vw, 20rem);
+  width: clamp(10rem, 20vw, 20rem);
   margin-right: clamp(0.5rem, 2vw, 2rem);
 }
 .about-me > .text-container {
-  width: 70%;
+  width: 100%;
+  float: left;
   animation: pulse 10s ease infinite;
 }
 /* Projects */
@@ -236,24 +237,62 @@ body {
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 2rem;
   height: fit-content;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .project {
-  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
+  transition: transform 1s, visibility 0.1s;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.project:nth-child(1) {
+  background-image: url("./img/calc.JPG");
+}
+.project:nth-child(2) {
+  background-image: url("./img/piano.JPG");
+}
+.project:nth-child(3) {
+  background-image: url("./img/music.JPG");
+}
+.project:nth-child(4) {
+  background-image: url("./img/spotify.JPG");
 }
 .project > .text-container {
-  color: #000;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.project > h2 {
-  float: left;
-  margin: 0;
-  padding: 0;
+.project > .text-container > span {
+  visibility: hidden;
+  z-index: -1;
+  transition: visibility 1ms, opacity 1s linear;
+  opacity: 0;
+  padding: 1rem;
 }
-
+.project > .text-container > h2 {
+  align-self: center;
+  position: absolute;
+  font-size: clamp(1.5rem, 2vw, 5rem);
+  font-weight: 600;
+  text-align: center;
+  text-wrap: wrap;
+}
+.project:hover > .text-container > span {
+  visibility: visible;
+  opacity: 1;
+}
+.project:hover {
+  animation: toBlack 1s forwards;
+  transform: scale(1.05);
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.281);
+}
 /* Animation */
 .about-me.animate__bounceInUp,
 .project-container.animate__bounceInUp {
@@ -277,7 +316,14 @@ body {
 .fadeIn_4 {
   animation: bounceInDown 3.5s ease-in;
 }
-
+@keyframes toBlack {
+  0% {
+    background-color: #ffffff71;
+  }
+  100% {
+    background-color: #0000002c;
+  }
+}
 @keyframes spining {
   0% {
     transform: translateX(-50%) translateY(0rem);
@@ -329,12 +375,12 @@ body {
 }
 
 .project-container::-webkit-scrollbar-thumb {
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.5, #a520ca),
-    color-stop(1, #2681cc)
+  background: rgb(124, 144, 219);
+  background: linear-gradient(
+    180deg,
+    rgba(124, 144, 219, 1) 0%,
+    rgba(149, 147, 217, 1) 50%,
+    rgba(115, 107, 146, 1) 100%
   );
   border-radius: 10px;
   visibility: hidden;
@@ -362,19 +408,32 @@ body {
     opacity: 0;
     display: flex;
     overflow-x: auto;
-    width: 100vw;
-    padding: 1rem;
+    width: 90vw;
+    padding: 0;
+    margin: 0;
     scroll-snap-type: x mandatory;
   }
-
+  .about-me {
+    width: 90vw;
+    height: fit-content;
+    padding: 3rem;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
   .project {
-    background-color: #fff;
     max-width: 90vw;
-    height: 30vh;
+    height: 50vh;
     flex: 0 0 auto;
     box-sizing: border-box;
     padding: 1rem;
     border-radius: 10px;
     scroll-snap-align: start;
+  }
+  .about-me-photo {
+    margin-bottom: clamp(0.5rem, 2vw, 2rem);
   }
 }
