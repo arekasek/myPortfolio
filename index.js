@@ -40,3 +40,21 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(section);
   });
 });
+
+const projects = document.querySelectorAll(".project");
+
+projects.forEach((project) => {
+  const projectText = project.querySelector(".text-container span");
+  const title = project.querySelector(".text-container > h2");
+
+  project.addEventListener("mouseover", () => {
+    title.style.visibility = "hidden";
+    title.style.transition = "visibility 1ms ease-out";
+    projectText.style.visibility = "visible";
+  });
+
+  project.addEventListener("mouseout", () => {
+    projectText.style.visibility = "hidden";
+    title.style.visibility = "visible";
+  });
+});
