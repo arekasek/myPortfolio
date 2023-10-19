@@ -68,6 +68,8 @@
       </section>
 
       <section class="column column-right">
+        <!-- Navigation -->
+
         <nav class="navigation justify-content-end font-weight-bold p-2">
           <ul class="nav">
             <li class="fadeIn_1">
@@ -79,9 +81,17 @@
             <li class="fadeIn_3">
               <a class="nav-link" href="#projects">Projects</a>
             </li>
-            <li class="fadeIn_4"><a class="nav-link" href="#">Resume</a></li>
+            <li class="fadeIn_4">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="fadeIn_5">
+              <a class="nav-link" href="#">Resume</a>
+            </li>
           </ul>
         </nav>
+
+        <!-- Welcome description -->
+
         <div class="welcome-description">
           <h2>
             Hi,<br />
@@ -95,6 +105,7 @@
         </div>
       </section>
 
+      <!-- Contact sidebar -->
       <a href="#aboutMe">
         <i
           class="fa-solid fa-circle-down arrow-position"
@@ -154,6 +165,11 @@
               arithmetic operations (addition, subtraction, multiplication,
               division, and percentage), as well as additional operations like
               exponentiation and square root.
+              <span
+                id="link_piano"
+                onclick="window.open('https://github.com/arekasek/SimpleCalc')"
+                >[LINK]</span
+              >
             </span>
           </div>
         </div>
@@ -166,6 +182,11 @@
               using both keyboard and mouse input. Each key corresponds to a
               specific musical note, and when clicked or pressed on the
               keyboard, it produces a corresponding sound.
+              <span
+                id="link_piano"
+                onclick="window.open('https://github.com/arekasek/simplePiano')"
+                >[LINK]</span
+              >
             </span>
           </div>
         </div>
@@ -173,11 +194,16 @@
           <div class="text-container">
             <h2>Music Quiz</h2>
             <span id="project-text">
-              This JavaScript code defines a basic calculator with a user
-              interface that includes buttons for numbers, decimal point, basic
-              arithmetic operations (addition, subtraction, multiplication,
-              division, and percentage), as well as additional operations like
-              exponentiation and square root.
+              This HTML code creates a simple music quiz webpage with embedded
+              JavaScript and PHP. The webpage includes an audio player, and
+              buttons to control the audio playback. When an answer is selected
+              and submitted, the PHP code checks if it's correct by querying a
+              database.
+              <span
+                id="link_piano"
+                onclick="window.open('https://github.com/arekasek/music-quiz')"
+                >[LINK]</span
+              >
             </span>
           </div>
         </div>
@@ -185,13 +211,72 @@
           <div class="text-container">
             <h2>Spotify Clone</h2>
             <span id="project-text">
-              This JavaScript code defines a basic calculator with a user
-              interface that includes buttons for numbers, decimal point, basic
-              arithmetic operations (addition, subtraction, multiplication,
-              division, and percentage), as well as additional operations like
-              exponentiation and square root.
+              This HTML code creates a simplified Spotify clone webpage. It
+              consists of a header with "Home" and "Search" links, followed by
+              the main content. The main content contains sections for
+              playlists. Each section will display a list of songs or playlists.
+              <span
+                id="link_piano"
+                onclick="window.open('https://github.com/arekasek/SpotifyProject')"
+                >[LINK]</span
+              >
             </span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+
+    <section class="column-full" id="contact">
+      <div class="glass-effect animate-section contact-container">
+        <div class="contact-container-information">
+          <h2 class="text-pop-up-top">
+            I'm
+            <br />
+            waiting
+            <br />
+            for your
+            <span>message</span>
+          </h2>
+        </div>
+
+        <div class="contact-container-form">
+          <h1 class="text-center p-3">Contact me!</h1>
+          <form>
+            <label>Name</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Full name"
+              data-name="name"
+              id="name"
+            />
+            <br />
+
+            <label>E-mail</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="E-mail address"
+              data-name="email"
+              id="email"
+            />
+            <br />
+
+            <label>Message</label>
+            <textarea
+              class="form-control"
+              cols="30"
+              rows="10"
+              style="resize: none"
+              type="text"
+              placeholder="Full name"
+              data-name="name"
+              id="name"
+            ></textarea>
+            <br />
+          </form>
         </div>
       </div>
     </section>
