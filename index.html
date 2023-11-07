@@ -70,6 +70,12 @@
       <section class="column column-right">
         <!-- Navigation -->
 
+        <div class="icon-menu fadeIn_1">
+          <button>
+            <i class="fa-solid fa-bars" style="color: #9593d9"></i>
+          </button>
+        </div>
+
         <nav class="navigation justify-content-end font-weight-bold p-2">
           <ul class="nav">
             <li class="fadeIn_1">
@@ -231,7 +237,7 @@
     <section class="column-full" id="contact">
       <div class="glass-effect animate-section contact-container">
         <div class="contact-container-information">
-          <h2 class="text-pop-up-top">
+          <h2 class="wobble-hor-bottom">
             I'm
             <br />
             waiting
@@ -243,7 +249,7 @@
 
         <div class="contact-container-form">
           <h1 class="text-center p-3">Contact me!</h1>
-          <form>
+          <form method="get" action="/form" autocomplete="off">
             <label>Name</label>
             <input
               class="form-control"
@@ -251,6 +257,7 @@
               placeholder="Full name"
               data-name="name"
               id="name"
+              required
             />
             <br />
 
@@ -261,6 +268,7 @@
               placeholder="E-mail address"
               data-name="email"
               id="email"
+              required
             />
             <br />
 
@@ -269,13 +277,36 @@
               class="form-control"
               cols="30"
               rows="10"
-              style="resize: none"
               type="text"
-              placeholder="Full name"
+              placeholder="Describe your problem"
               data-name="name"
               id="name"
+              required
             ></textarea>
             <br />
+            <button type="submit" class="sendBtn">
+              <h1 class="send-message">Send me</h1>
+              <span class="arrow">
+                <svg
+                  style="color: rgb(115, 107, 146)"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="currentColor"
+                  class="bi bi-send-check"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372l2.8-7Zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733Z"
+                    fill="#736b92"
+                  ></path>
+                  <path
+                    d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"
+                    fill="#736b92"
+                  ></path>
+                </svg>
+              </span>
+            </button>
           </form>
         </div>
       </div>
