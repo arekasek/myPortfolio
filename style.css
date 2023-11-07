@@ -246,7 +246,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: -1;
+  z-index: 0;
 }
 .about-me-photo {
   border-radius: 50%;
@@ -280,7 +280,6 @@ body {
   height: fit-content;
   overflow-x: auto;
   overflow-y: hidden;
-  z-index: -1;
 }
 .project {
   background-size: cover;
@@ -313,7 +312,7 @@ body {
 }
 .project > .text-container > span {
   visibility: hidden;
-  z-index: -1;
+  z-index: 2;
   transition: visibility 1ms, opacity 1s linear;
   font-size: clamp(16px, 1.2vw, 3rem);
   opacity: 0;
@@ -348,7 +347,7 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
-  z-index: -1;
+  z-index: 1;
   padding: 0;
 }
 .contact-container-form > label {
