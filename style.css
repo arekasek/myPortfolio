@@ -246,7 +246,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: -1;
 }
 .about-me-photo {
   border-radius: 50%;
@@ -280,6 +280,7 @@ body {
   height: fit-content;
   overflow-x: auto;
   overflow-y: hidden;
+  z-index: -1;
 }
 .project {
   background-size: cover;
@@ -312,7 +313,7 @@ body {
 }
 .project > .text-container > span {
   visibility: hidden;
-  z-index: 2;
+  z-index: -1;
   transition: visibility 1ms, opacity 1s linear;
   font-size: clamp(16px, 1.2vw, 3rem);
   opacity: 0;
@@ -347,7 +348,7 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
-  z-index: 1;
+  z-index: -1;
   padding: 0;
 }
 .contact-container-form > label {
@@ -363,12 +364,24 @@ body {
   width: 100%;
   box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
     rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  color: #fff;
 }
 .contact-container input[type="text"],
 .contact-container [type="email"] {
   height: 3rem;
 }
-.contact-container textarea {
+.contact-container input[type="text"]:focus,
+.contact-container [type="email"]:focus {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+textarea.form-control {
+  color: #fff;
+  resize: none;
+}
+textarea.form-control:focus {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgba(255, 255, 255, 0.164);
+  color: #fff;
 }
 .contact-container-information {
   background-color: #fff;
@@ -399,6 +412,53 @@ body {
   font-size: var(--headers);
   color: #fff;
 }
+.contact-container-form > form > label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+/* Button */
+
+.sendBtn {
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.212);
+}
+.send-message {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 3.5rem;
+}
+.arrow {
+  position: absolute;
+  right: 7.5px;
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  transition: all 0.5s ease;
+}
+.sendBtn:active {
+  position: relative;
+  top: 5px;
+}
+.sendBtn:hover .arrow {
+  width: calc(200px - (7.5px) * 2);
+}
+.sendBtn:hover .send-message {
+  display: none;
+}
 
 /* Animation */
 
@@ -409,9 +469,67 @@ body {
   transform: translateY(0);
   animation-duration: 1.5s;
 }
-.text-pop-up-top {
-  -webkit-animation: text-pop-up-top 2s ease-in-out infinite alternate;
-  animation: text-pop-up-top 2s ease-in-out infinite alternate;
+@-webkit-keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+.wobble-hor-bottom {
+  -webkit-animation: wobble-hor-bottom 5s ease-in-out infinite both;
+  animation: wobble-hor-bottom 5s ease-in-out infinite both;
 }
 .fadeIn_1 {
   animation: bounceInDown 2s ease-in;
@@ -507,6 +625,28 @@ body {
 .project-container::-webkit-scrollbar-thumb {
   visibility: visible;
 }
+
+.icon-menu {
+  position: fixed;
+  right: 0;
+  display: none;
+  top: 0;
+  margin: 1.5rem;
+  font-size: 32px;
+}
+.icon-menu button {
+  background-color: #fff;
+  height: 3.5rem;
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  z-index: 3;
+  border-radius: 50%;
+}
+
 /* Responsive */
 @media only screen and (max-width: 1200px) {
   .contact-sidebar {
@@ -517,6 +657,9 @@ body {
     grid-template-rows: auto;
     grid-gap: 0.5rem;
   }
+  .contact-container {
+    grid-template-columns: 50% 50%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -526,9 +669,6 @@ body {
     width: 90vw;
     margin: 0;
   }
-  .project-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
   .about-me {
     height: fit-content;
     padding: 3rem;
@@ -537,6 +677,12 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+  .contact-container {
+    grid-template-columns: 100%;
+  }
+  .contact-container-information {
+    display: none;
   }
 }
 
@@ -564,5 +710,28 @@ body {
   }
   .about-me-photo {
     margin-bottom: clamp(0.5rem, 2vw, 2rem);
+  }
+  .sendBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(75px, 200px, 20vw);
+  }
+  .arrow {
+    position: relative;
+    right: 0;
+  }
+  .sendBtn:hover .arrow {
+    width: calc(clamp(75px, 200px, 20vw) - (7.5px) * 2);
+  }
+  .send-message {
+    display: none;
+  }
+  .navigation {
+    display: none;
+  }
+  .icon-menu {
+    display: block;
+    z-index: 3;
   }
 }
